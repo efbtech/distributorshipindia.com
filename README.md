@@ -1,2 +1,2 @@
 # distributorshipindia.com
-Website, Application
+Complete development of Website, Backend, API development.
