@@ -1,0 +1,464 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+html {
+  font-size: 16px;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+h1 {
+  line-height: 3.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+h1 span {
+  color: #f48646;
+  font-size: 2.4rem;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h3.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  color: #f48646;
+}
+
+h3.title span {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  color: #f48646;
+}
+
+h4 span {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  opacity: 0.8;
+}
+
+/*  -------------padding global--------------  */
+.mt-6 {
+  margin-top: 6rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.p-6 {
+  padding: 6rem;
+}
+
+.pt-6 {
+  padding-top: 6rem;
+}
+
+.pb-6 {
+  padding-bottom: 6rem;
+}
+
+.py-6 {
+  padding: 6rem 0;
+}
+
+.px-6 {
+  padding: 0 6rem;
+}
+
+.my-6 {
+  margin: 6rem 0;
+}
+
+.mx-6 {
+  margin: 0 6rem;
+}
+
+.btn-orange {
+  background-color: #f48646;
+  border: 0.1rem solid #f48646;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  min-width: 10rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.btn-orange:hover {
+  background-color: transparent;
+  color: #f48646;
+  transition: all 0.3s ease;
+}
+
+/*# sourceMappingURL=gobal.css.map */
+@media (max-width: 992px) {
+  header nav.navbar .navbar-nav {
+    padding: 1rem 0;
+    border-top: 0.185rem solid #a73a2c;
+    margin-top: 7px;
+  }
+  header nav.navbar .navbar-nav .nav-item .nav-link {
+    padding: 0.7rem 1.5rem 0.7rem 0 !important;
+    border-bottom: 1px dashed #f7c169;
+  }
+  header nav.navbar .navbar-nav .nav-item:nth-last-child(2) > .nav-link {
+    border: none;
+  }
+  header nav.navbar .navbar-toggler:focus {
+    box-shadow: unset;
+  }
+}
+@media (max-width: 768px) {
+  .smile img {
+    display: none;
+  }
+  .who-we-are {
+    padding-top: 2rem !important;
+  }
+  .who-we-are .roti-img {
+    margin-bottom: 0rem;
+    padding-top: 1rem !important;
+  }
+  .donation-amount .donation-card {
+    margin-bottom: 2rem;
+  }
+  .message p br {
+    display: none;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1500px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+  .faq::after {
+    display: none;
+  }
+  .message p br {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  html {
+    font-size: 13px;
+  }
+  .faq::after {
+    display: none;
+  }
+  .social-media {
+    margin-top: -10rem;
+  }
+  .testimonials h5 {
+    padding-left: 0rem;
+    font-size: 1.6rem;
+  }
+  header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+    display: none;
+  }
+  .health__banner {
+    padding: 15rem 0 0rem;
+  }
+  .hunger__cruelty .bg-cream {
+    background-image: unset;
+    top: 0;
+  }
+  .inhumanity {
+    padding-top: 6rem;
+    padding-bottom: 15rem;
+  }
+  .inhumanity .inhumanity__sm__1 {
+    width: 100%;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+  .inhumanity .inhumanity__sm__2 {
+    width: 100%;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+  .changing__people {
+    padding-bottom: 6rem;
+  }
+  .food__hope::before {
+    width: 7rem;
+    height: 8rem;
+  }
+  .food__hope::after {
+    width: 7rem;
+    height: 9rem;
+    top: 1rem;
+  }
+  .changing__people .roti__served::before {
+    display: none;
+  }
+  .changing__people .roti__served h4 span {
+    margin: 1.5rem 0;
+  }
+  .changing__people .btn-red {
+    margin: 1rem 0 0;
+  }
+  .changing__people img {
+    width: 100%;
+  }
+  footer h4 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  .faq::after {
+    display: none;
+  }
+  .social-media {
+    margin-top: -10rem;
+  }
+  .trending__post {
+    padding: 3rem 2rem;
+  }
+  .donation-amount ul.breadcrumb li {
+    font-size: 14px;
+  }
+  header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+    display: none;
+  }
+  .health__banner {
+    padding: 15rem 0 0rem;
+  }
+  .hunger__cruelty .bg-cream {
+    background-image: unset;
+    top: 0;
+  }
+  .inhumanity {
+    padding-top: 6rem;
+    padding-bottom: 15rem;
+  }
+  .inhumanity .inhumanity__design__1::after {
+    display: none;
+  }
+  .inhumanity .inhumanity__sm__1 {
+    width: 55%;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+  .inhumanity .inhumanity__sm__2 {
+    width: 55%;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+  .food__hope::before {
+    width: 7rem;
+    height: 8rem;
+  }
+  .food__hope::after {
+    width: 7rem;
+    height: 9rem;
+    top: 1rem;
+  }
+  .changing__people .roti__served::before {
+    display: none;
+  }
+  .changing__people .roti__served h4 span {
+    margin: 1.5rem 0;
+  }
+  .changing__people .btn-red {
+    margin: 1rem 0 0;
+  }
+  .changing__people img {
+    width: 100%;
+  }
+  footer h4 {
+    font-size: 2rem;
+  }
+  .get__in__touch .get__in__touch__form {
+    padding: 2.5rem 2.5rem;
+  }
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 11px;
+  }
+  .tab button {
+    margin: 0.5rem;
+  }
+  .trending__post {
+    padding: 2rem 1rem;
+  }
+  .donation-amount ul.breadcrumb li {
+    font-size: 14px;
+  }
+  .faq::after {
+    display: none;
+  }
+  .social-media {
+    margin-top: -10rem;
+    text-align: center;
+  }
+  .social-media .social-icon {
+    justify-content: center;
+  }
+  .protection .volunteer {
+    padding: 3rem;
+  }
+  .protection .volunteer h1 {
+    font-size: 1.75rem;
+  }
+  header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+    display: none;
+  }
+  .health__banner {
+    padding: 15rem 0 0rem;
+  }
+  .hunger__cruelty .bg-cream {
+    background-image: unset;
+    top: 0;
+  }
+  .inhumanity {
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+  }
+  .inhumanity .inhumanity__design__1::after {
+    display: none;
+  }
+  .inhumanity .inhumanity__sm__1 {
+    width: 55%;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+  .inhumanity .inhumanity__sm__2 {
+    width: 55%;
+    margin-right: auto;
+    margin-top: 3rem;
+  }
+  .food__hope::before {
+    width: 7rem;
+    height: 8rem;
+  }
+  .food__hope::after {
+    width: 7rem;
+    height: 9rem;
+    top: 1rem;
+  }
+  .changing__people .roti__served::before {
+    display: none;
+  }
+  .changing__people .roti__served h4 span {
+    margin: 1.5rem 0;
+  }
+  .changing__people .btn-red {
+    margin: 1rem 0 0;
+  }
+  .changing__people img {
+    width: 100%;
+  }
+  footer h4 {
+    font-size: 2rem;
+  }
+  .get__in__touch .btn-red {
+    min-width: 9.49rem;
+  }
+  .get__in__touch .get__in__touch__form {
+    padding: 2rem 2rem;
+  }
+  .donate_form {
+    margin: 0 1rem;
+  }
+  .donate_form .donate_border {
+    padding: 1rem 0.5rem;
+  }
+  .donate_form .donate_border .form-check {
+    padding: 0 0.8rem;
+  }
+  .donate_form .select-months .form-check .form-check-label {
+    font-size: 1.4rem;
+    padding: 1.5rem 0;
+  }
+  .donate_form .custom-dontaion-check .form-check .form-check-label {
+    font-size: 1.4rem;
+    padding: 0.4rem 0.3rem;
+  }
+}
+@media (min-width: 280px) and (max-width: 450px) {
+  .donate_top_banner .charity h4 {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 280px) {
+  html {
+    font-size: 11px;
+  }
+  .faq::after {
+    display: none;
+  }
+  .social-media {
+    margin-top: -10rem;
+    text-align: center;
+  }
+  .social-media .social-icon {
+    justify-content: center;
+  }
+  .who-we-are h3 {
+    font-size: 0.875rem;
+  }
+  .who-we-are h2 {
+    font-size: 1.875rem;
+  }
+  .protection .volunteer h1 {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 1600px) {
+  .donation-amount::after {
+    display: none;
+  }
+  .donation-amount::before {
+    display: none;
+  }
+  .donate_top_banner::before, .donate_top_banner::after {
+    opacity: 0.3;
+    z-index: -1;
+  }
+}/*# sourceMappingURL=responsive.css.map */

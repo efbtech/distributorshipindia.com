@@ -1,0 +1,182 @@
+// ----------------
+// variables start
+// ----------------
+$white: #fff;
+$gray: #525560;
+$gray-lighter: #CBCBCB;
+$gray-light: #d3d3d3;
+$lightgray: #d8d8d8;
+$black: #252525;
+$cream: #eebf7c;
+$yellow: #ffd248;
+$red: #9e4537;
+$redlight: #b75141;
+$silver: #f1f1f1;
+$light-pink: #fdfafa;
+$silver-dark: #f6f6f6;
+$dangrek: "Dangrek", cursive;
+$inter: "Inter", sans-serif;
+$nothing: "Nothing You Could Do", cursive;
+$pt-serif: "PT Serif", serif;
+$poppins: "Poppins", sans-serif;
+// ----------------
+// variables end
+// ----------------
+
+// -----------------
+// font-family start
+// -----------------
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&family=Inter:wght@300;400;500;600;700;800&family=Nothing+You+Could+Do&family=PT+Serif:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+// -----------------
+// font-family end
+// -----------------
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $inter;
+  overflow-x: hidden;
+}
+
+.dangrek {
+  font-family: $dangrek;
+}
+
+.pt-serif {
+  font-family: $pt-serif;
+}
+
+.nothing-you-could-do {
+  font-family: $nothing;
+}
+
+.inter {
+  font-family: $inter;
+}
+
+h1 {
+  font-size: 4.25rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 4.25rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 2.125rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+/*  -------------padding global--------------  */
+.mt-6 {
+  margin-top: 6rem;
+}
+.mb-6 {
+  margin-bottom: 6rem;
+}
+.p-6 {
+  padding: 6rem;
+}
+.pt-6 {
+  padding-top: 6rem;
+}
+.pb-6 {
+  padding-bottom: 6rem;
+}
+.py-6 {
+  padding: 6rem 0;
+}
+.px-6 {
+  padding: 0 6rem;
+}
+
+.my-6 {
+  margin: 6rem 0;
+}
+.mx-6 {
+  margin: 0 6rem;
+}
+
+.text-red {
+  color: $red;
+}
+
+input {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.bg-red {
+  background-color: $red;
+}
+
+.bg-cream {
+  background-color: $cream;
+}
+
+.btn-red {
+  background-color: $red;
+  border: 0.1rem solid $red;
+  color: $white;
+  padding: 0.6rem 1rem;
+  min-width: 10rem;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+  &:hover {
+    background-color: $cream;
+    border-color: $cream;
+    color: $red;
+    transition: all 0.3s ease;
+  }
+}
+.btn-silver {
+  background-color: $silver;
+  border: 0.1rem solid $silver;
+  color: $black;
+  padding: 0.6rem 1rem;
+  min-width: 9rem;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+  &:hover {
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+    transition: all 0.3s ease;
+  }
+}

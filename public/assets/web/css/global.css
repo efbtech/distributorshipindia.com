@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&family=Inter:wght@300;400;500;600;700;800&family=Nothing+You+Could+Do&family=PT+Serif:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap");
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+.dangrek {
+  font-family: "Dangrek", cursive;
+}
+
+.pt-serif {
+  font-family: "PT Serif", serif;
+}
+
+.nothing-you-could-do {
+  font-family: "Nothing You Could Do", cursive;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: 4.25rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 4.25rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 3.125rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 2.125rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/*  -------------padding global--------------  */
+.mt-6 {
+  margin-top: 6rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
+}
+
+.p-6 {
+  padding: 6rem;
+}
+
+.pt-6 {
+  padding-top: 6rem;
+}
+
+.pb-6 {
+  padding-bottom: 6rem;
+}
+
+.py-6 {
+  padding: 6rem 0;
+}
+
+.px-6 {
+  padding: 0 6rem;
+}
+
+.my-6 {
+  margin: 6rem 0;
+}
+
+.mx-6 {
+  margin: 0 6rem;
+}
+
+.text-red {
+  color: #9e4537;
+}
+
+input:focus {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.bg-red {
+  background-color: #9e4537;
+}
+
+.bg-cream {
+  background-color: #eebf7c;
+}
+
+.btn-red {
+  background-color: #9e4537;
+  border: 0.1rem solid #9e4537;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  min-width: 10rem;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.btn-red:hover {
+  background-color: #eebf7c;
+  border-color: #eebf7c;
+  color: #9e4537;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-silver {
+  background-color: #f1f1f1;
+  border: 0.1rem solid #f1f1f1;
+  color: #252525;
+  padding: 0.6rem 1rem;
+  min-width: 9rem;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.btn-silver:hover {
+  background-color: #9e4537;
+  border-color: #9e4537;
+  color: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/*# sourceMappingURL=global.css.map */

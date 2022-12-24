@@ -1,0 +1,568 @@
+@import "gobal";
+
+@media (min-width: 1300px) {
+}
+
+@media (max-width: 1600px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (max-width: 992px) {
+    header nav.navbar {
+        .navbar-nav {
+            padding: 1rem 0;
+            border-top: 0.185rem solid #a73a2c;
+            margin-top: 7px;
+            .nav-item {
+                .nav-link {
+                    padding: 0.7rem 1.5rem 0.7rem 0 !important;
+                    border-bottom: 1px dashed #f7c169;
+                }
+                &:nth-last-child(2) > .nav-link {
+                    border: none;
+                }
+            }
+        }
+        .navbar-toggler:focus {
+            box-shadow: unset;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .smile {
+        img {
+            display: none;
+        }
+    }
+
+    .who-we-are {
+        padding-top: 2rem !important;
+
+        .roti-img {
+            margin-bottom: 0rem;
+            padding-top: 1rem !important;
+        }
+    }
+
+    .donation-amount {
+        .donation-card {
+            margin-bottom: 2rem;
+        }
+    }
+
+    // contact starts here
+    .message p {
+        br {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+    // .faq::after {
+    //     width: 60%;
+    //     height: 83%;
+    //     top: -34.313rem;
+    //     right: 0.875rem;
+    // }
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+    html {
+        font-size: 15px;
+    }
+
+    // .who-we-are .roti-img {
+    //     width: 24.75rem;
+
+    // }
+
+    // .faq::after {
+    //     width: 63%;
+    //     height: 91%;
+    //     top: -32.313rem;
+    //     right: 0.875rem;
+    // }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+
+    .faq::after {
+        display: none;
+    }
+
+    // .who-we-are .roti-img {
+    //     width: 24.75rem;
+
+    // }
+
+    .message p {
+        br {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    html {
+        font-size: 13px;
+    }
+
+    // .who-we-are {
+    //     .smile {
+    //         width: 50%;
+    //     }
+    //     .roti-img {
+    //         width: 18.75rem;
+
+    //     }
+    // }
+
+    .faq::after {
+        display: none;
+    }
+
+    .social-media {
+        margin-top: -10rem;
+    }
+
+    .testimonials {
+        h5 {
+            padding-left: 0rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    // home page start
+    header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+        display: none;
+    }
+
+    .health__banner {
+        padding: 15rem 0 0rem;
+    }
+
+    .hunger__cruelty {
+        .bg-cream {
+            background-image: unset;
+            top: 0;
+        }
+    }
+
+    .inhumanity {
+        padding-top: 6rem;
+        padding-bottom: 15rem;
+
+        .inhumanity__sm__1 {
+            width: 100%;
+            margin-left: auto;
+            margin-bottom: 3rem;
+        }
+
+        .inhumanity__sm__2 {
+            width: 100%;
+            margin-right: auto;
+            margin-top: 3rem;
+        }
+    }
+
+    .changing__people {
+        padding-bottom: 6rem;
+    }
+
+    .food__hope {
+        &::before {
+            width: 7rem;
+            height: 8rem;
+        }
+
+        &::after {
+            width: 7rem;
+            height: 9rem;
+            top: 1rem;
+        }
+    }
+
+    .changing__people {
+        .roti__served {
+            &::before {
+                display: none;
+            }
+
+            h4 {
+                span {
+                    margin: 1.5rem 0;
+                }
+            }
+        }
+    }
+
+    .changing__people {
+        .btn-red {
+            margin: 1rem 0 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    footer {
+        h4 {
+            font-size: 2rem;
+        }
+    }
+
+    // home page end
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+
+    .faq::after {
+        display: none;
+    }
+
+    .social-media {
+        margin-top: -10rem;
+    }
+
+    .trending__post {
+        padding: 3rem 2rem;
+    }
+
+    .donation-amount ul.breadcrumb li {
+        font-size: 14px;
+    }
+
+    // home page start
+    header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+        display: none;
+    }
+
+    .health__banner {
+        padding: 15rem 0 0rem;
+    }
+
+    .hunger__cruelty {
+        .bg-cream {
+            background-image: unset;
+            top: 0;
+        }
+    }
+
+    .inhumanity {
+        padding-top: 6rem;
+        padding-bottom: 15rem;
+
+        .inhumanity__design__1 {
+            &::after {
+                display: none;
+            }
+        }
+
+        .inhumanity__sm__1 {
+            width: 55%;
+            margin-left: auto;
+            margin-bottom: 3rem;
+        }
+
+        .inhumanity__sm__2 {
+            width: 55%;
+            margin-right: auto;
+            margin-top: 3rem;
+        }
+    }
+
+    .food__hope {
+        &::before {
+            width: 7rem;
+            height: 8rem;
+        }
+
+        &::after {
+            width: 7rem;
+            height: 9rem;
+            top: 1rem;
+        }
+    }
+
+    .changing__people {
+        .roti__served {
+            &::before {
+                display: none;
+            }
+
+            h4 {
+                span {
+                    margin: 1.5rem 0;
+                }
+            }
+        }
+    }
+
+    .changing__people {
+        .btn-red {
+            margin: 1rem 0 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    footer {
+        h4 {
+            font-size: 2rem;
+        }
+    }
+
+    // home page end
+    // contact page start
+    .get__in__touch .get__in__touch__form {
+        padding: 2.5rem 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 11px;
+    }
+
+    .tab button {
+        margin: 0.5rem;
+    }
+
+    .trending__post {
+        padding: 2rem 1rem;
+    }
+
+    .donation-amount ul.breadcrumb li {
+        font-size: 14px;
+    }
+
+    .who-we-are {
+        // .smile {
+        //     width: 40%;
+        // }
+
+        // .roti-img {
+        //     width: 22.75rem;
+        // }
+    }
+
+    .faq::after {
+        display: none;
+    }
+
+    .social-media {
+        margin-top: -10rem;
+        text-align: center;
+
+        .social-icon {
+            justify-content: center;
+        }
+    }
+
+    .protection .volunteer {
+        padding: 3rem;
+
+        h1 {
+            font-size: 1.75rem;
+        }
+    }
+
+    // home page start
+    header nav.navbar .navbar-nav .nav-item .nav-link.active::before {
+        display: none;
+    }
+
+    .health__banner {
+        padding: 15rem 0 0rem;
+    }
+
+    .hunger__cruelty {
+        .bg-cream {
+            background-image: unset;
+            top: 0;
+        }
+    }
+
+    .inhumanity {
+        padding-top: 6rem;
+        padding-bottom: 8rem;
+
+        .inhumanity__design__1 {
+            &::after {
+                display: none;
+            }
+        }
+
+        .inhumanity__sm__1 {
+            width: 55%;
+            margin-left: auto;
+            margin-bottom: 3rem;
+        }
+
+        .inhumanity__sm__2 {
+            width: 55%;
+            margin-right: auto;
+            margin-top: 3rem;
+        }
+    }
+
+    .food__hope {
+        &::before {
+            width: 7rem;
+            height: 8rem;
+        }
+
+        &::after {
+            width: 7rem;
+            height: 9rem;
+            top: 1rem;
+        }
+    }
+
+    .changing__people {
+        .roti__served {
+            &::before {
+                display: none;
+            }
+
+            h4 {
+                span {
+                    margin: 1.5rem 0;
+                }
+            }
+        }
+    }
+
+    .changing__people {
+        .btn-red {
+            margin: 1rem 0 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    footer {
+        h4 {
+            font-size: 2rem;
+        }
+    }
+
+    // home page end
+    // contact page start
+    .get__in__touch .btn-red {
+        min-width: 9.49rem;
+    }
+
+    .get__in__touch .get__in__touch__form {
+        padding: 2rem 2rem;
+    }
+
+    .donate_form {
+        margin: 0 1rem;
+        .donate_border {
+            padding: 1rem 0.5rem;
+            .form-check {
+                padding: 0 0.8rem;
+            }
+        }
+        .select-months {
+            .form-check {
+                .form-check-label {
+                    font-size: 1.4rem;
+                    padding: 1.5rem 0;
+                }
+            }
+        }
+        .custom-dontaion-check {
+            .form-check {
+                .form-check-label {
+                    font-size: 1.4rem;
+                    padding: 0.4rem 0.3rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 280px) and (max-width: 450px) {
+    .donate_top_banner .charity h4 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 280px) {
+    html {
+        font-size: 11px;
+    }
+
+    .faq::after {
+        display: none;
+    }
+
+    .social-media {
+        margin-top: -10rem;
+        text-align: center;
+
+        .social-icon {
+            justify-content: center;
+        }
+    }
+
+    .who-we-are {
+        // .smile {
+        //     width: 30%;
+        // }
+
+        // .roti-img {
+        //     width: 18.75rem;
+        // }
+        h3 {
+            font-size: 0.875rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+        }
+    }
+
+    .protection .volunteer h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    .donation-amount {
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+    .donate_top_banner {
+        &::before,
+        &::after {
+            opacity: 0.3;
+            z-index: -1;
+        }
+    }
+}

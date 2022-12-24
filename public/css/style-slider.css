@@ -1,0 +1,68 @@
+/*body {
+	font-family: 'Lato', sans-serif !important;
+	}*/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+	}
+.clearfix:after {
+	clear: both;
+	}
+.carousel {
+	width:100%;
+	margin:30px auto;
+	}
+.carousel h1 {
+	/* font-size:36px; */
+	margin: 0px 0px 30px 0px;
+	/* font-weight: normal; */
+	}
+.carousel .box {
+	float:left;
+	width: 33%;
+	}
+.carousel .box p{
+	/* font-size:20px; */
+	/* color:#0067ab; */
+	text-align:center;
+	margin:0px;
+	}
+.carousel .box p span{
+	/* font-size: 14px; */
+	/* color: #000; */
+	/* font-weight: bold; */
+	}
+.carousel .box p img{
+	margin-bottom: 10px;
+	margin: auto;
+	}
+.slick-prev, .slick-next {
+	background: url(../images/arrows.png);
+	width: 22px;
+	height: 33px;
+	position: absolute;
+	top: 30%;
+	display: block;
+	padding: 0;
+	cursor: pointer;
+	color: transparent;
+	border: none;
+	outline: none;
+	z-index: 100;
+	}
+	
+.slick-prev {
+	background-position: 0px;
+	left: 0px;
+	}
+.slick-next {
+	background-position: -22px;
+	right: 0px;
+	}
+
+@media only screen and (max-width: 1180px) {
+.carousel {
+	width:90%;
+	}
+}
+

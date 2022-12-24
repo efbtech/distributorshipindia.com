@@ -1,0 +1,66 @@
+:root{
+            --main-color:#106eea;
+
+        }
+
+
+        #flogo{
+            align-items: center;
+        }
+
+        .color-gray{
+            color:#AAAAAA;
+        }
+
+        .fbox-headline{
+            text-align: center;
+            font-size: 18px;
+            text-decoration: none;
+            color: var(--main-color);
+        }
+
+        .fbox-headline:hover{
+            text-align: center;
+            font-size: 18px;
+            text-decoration: none;
+            color: var(--main-color);
+        }
+
+        .fbox-body{
+            font-size: 16px;
+            width: 100%;
+            color: #666666;
+            text-align: center;
+        }
+
+        .know-more-btn{
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            padding: 6px;
+            background-color: white; 
+            color: var(--main-color);
+            border-radius: 5px;
+            border: 1px solid var(--main-color);
+        }
+
+        .know-more-btn:hover{
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            padding: 6px;
+            background-color: var(--main-color);
+            color: white;
+            border-radius: 5px;
+            border: 1px solid var(--main-color);
+            transition: 0.5s;
+        }
+
+        .dp-shadow:hover{
+            box-shadow: 0px 0px 15px 0px rgba(4, 159, 243, 0.178);
+            -webkit-box-shadow: 0px 0px 15px 0px rgba(4, 159, 243, 0.178);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(4, 159, 243, 0.178);
+            border-radius: 0px;
+        }
