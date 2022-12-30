@@ -6,20 +6,58 @@ use App\Models\Web\QueryModel;
 use App\Models\Category;
 use App\Models\Distributor;
 use App\Models\listing_cat;
-use App\Models\Admin\AdminMediaModel;
+use App\Services\Images\ImageServices;
 use App\Interfaces\Web\GeneralInterface;
 use Carbon\Carbon;
 
 class GeneralRepository implements GeneralInterface
 {
+    private $imageService;
+    
+    public function __construct(ImageServices $imageService ) {
+        $this->imageService = $imageService;
+    }
+
     public function contactUs($request) {
         QueryModel::create($request);
     }
 
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Distributors abd categories save
+    |--------------------------------------------------------------------------
+    */
     public function saveList($request,$cats) {
-        $listing = Distributor::create($request);
+        $logo = $request['logo'];
+        $imageUploadPath = 'assets/uploads/distributors/logo';
+        $newImageName = str_replace(' ', '_', $request['name'].time());
+        $uploadedImageName = $this->imageService->uploadImageAdmin($logo,$imageUploadPath,$newImageName);
+        $uploadedImagePathLogo = $imageUploadPath.'/'.$uploadedImageName;
+        $listing = new Distributor;
+        $listing->name = $request['name'];
+        $listing->mode = $request['mode'];
+        $listing->gst = $request['gst'];
+        $listing->pan = $request['pan'];
+        $listing->brand = $request['brand'];
+        $listing->establishment = $request['establishment'];
+        $listing->anualsale_start = $request['anualsale_start'];
+        $listing->anualsale_end = $request['anualsale_end'];
+        $listing->anualsale_unit = $request['anualsale_unit'];
+        $listing->total_distributors = $request['total_distributors'];
+        $listing->space = $request['space'];
+        $listing->logo = $uploadedImagePathLogo;
+        $listing->address = $request['address'];
+        $listing->city = $request['city'];
+        $listing->state = $request['state'];
+        $listing->zip = $request['zip'];
+        $listing->save();
+        
         foreach($cats as $c) {
-            listing_cat::create(['listing_id'=>$listing->id, 'category_id'=>$c]);
+            $cat = new listing_cat;
+            $cat->listing_id = $listing->id;
+            $cat->category_id = $c;
+            $cat->save();
         }
     }
 
@@ -40,6 +78,25 @@ class GeneralRepository implements GeneralInterface
     public function blogRand() {
         $cat = Category::where('parent_id','=',NULL)->orderBy('id', 'asc')->get();
         return ['cats'=>$cat, 'firstsubcat'=>Category::where('parent_id',$cat[0]->id)->get()];
+    }
+
+    public function userListing($uid) {
+        $data = Distributor::where('user_id',$uid)->get();
+        return $data;
+    }
+
+    public function allListing($type) {
+        if($type == 'distributor') {
+            $data = Distributor::orderBy('id', 'desc')->get();
+        }
+        return $data;
+    }
+
+    public function listingDetail($slug,$type) {
+        if($type == 'distributor') {
+            $data = Distributor::where('slug',$slug)->first();
+        }
+        return $data;
     }
 
     public function subCat($id) {

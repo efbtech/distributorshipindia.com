@@ -12,6 +12,12 @@ Interface GeneralServiceInterface
 
     public function blogRand();
 
+    public function userListing($uid);
+
+    public function allListing($type);
+
+    public function listingDetail($slug,$type);
+
     public function subCat($id);
 
     public function blogDetail($slug);

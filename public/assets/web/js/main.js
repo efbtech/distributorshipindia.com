@@ -1,7 +1,7 @@
-function opensubcat(id) {
+function opensubcat(id,url) {
   $('#subcatview input:checkbox').removeAttr('checked');
   $.ajax({
-    url: '/distributorindia/web/subcats/'+id, // this is the object instantiated in wp_localize_script function
+    url: url+'/'+id, // this is the object instantiated in wp_localize_script function
     type: 'GET',
     dataType: 'json',
     success: function( data ){
