@@ -138,6 +138,9 @@ ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('dashboard') }}">
+                                        {{ __('Dashboard') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -335,7 +338,7 @@ ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <script src="{{ asset('assets/web/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/web/js/wow.js') }}"></script>
     <script src="{{ asset('assets/web/js/owl-carousel.js') }}"></script>
-    <script src="{{ asset('assets/web/js/bootstrap.js') }}"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="{{ asset('assets/web/js/util.js') }}"></script>
     <script src="{{ asset('assets/web/js/main.js') }}"></script>
     <script src="{{asset('js/validate.js')}}"></script>

@@ -33,13 +33,14 @@
 
             <!-- ***********Distributors Search*********** -->
             <div class="tab-pane fade show active hometab pt-4 pb-4" id="home" role="tabpanel" aria-labelledby="home-tab">
-              
-            </div>
+
+            @include('web.tabs.db_search',['cats'=>$blogRand['cats']])
             <!-- ***********End Distributors Search*********** -->
 
 
 <!-- ***********Franchisess Search*********** -->
-            <div class="tab-pane fade profiletab pt-4 pb-4" id="profile" role="tabpanel"   aria-labelledby="profile-tab">
+            <div class="tab-pane fade show profiletab pt-4 pb-4" id="profile" role="tabpanel"   aria-labelledby="profile-tab">
+            @include('web.tabs.franchise_search_filter', ['cats'=>$blogRand['cats']])
 
               <?php //include('franchise_search_filter.php'); ?>
             
@@ -51,8 +52,8 @@
 
 
       <!-- ***********Sales Agent Search*********** -->
-          <div class="tab-pane fade contacttab pt-4 pb-4" id="contact" role="tabpanel"  aria-labelledby="contact-tab">
-                <?php //include('salesagent_search_filter.php'); ?>
+          <div class="tab-pane fade show contacttab pt-4 pb-4" id="contact" role="tabpanel"  aria-labelledby="contact-tab">
+            @include('web.tabs.salesagent_search_filter', ['cats'=>$blogRand['cats']])
             </div>
             <!-- ***********End Sales Agent Search*********** -->
 
@@ -79,9 +80,13 @@
     <section class="mt-1 mb-3">
       <h5 class="sec_headline">Distributorship & Business Opportunities</h5>
       <div class="row">
-        
-    </div>
-      </section>
+        @foreach($distributors as $distributor)
+        <div class="col-sm-3">
+          @include('web.listing.listing_card',['logo'=>$distributor->logo, 'name'=>$distributor->name, 'anualsale_start'=>$distributor->anualsale_start, 'anualsale_end'=>$distributor->anualsale_end, 'anualsale_unit'=>$distributor->anualsale_unit,'slugroot'=>'distributor', 'slug'=>$distributor->slug])
+        </div>
+        @endforeach
+      </div>
+    </section>
      
     </div>
 

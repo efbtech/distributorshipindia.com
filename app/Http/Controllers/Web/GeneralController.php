@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Interfaces\Web\GeneralServiceInterface;
 use App\Interfaces\Admin\CampaignsServiceInterface;
+use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -18,12 +19,25 @@ class GeneralController extends Controller
 
     public function home() {
         $blogRand = $this->GeneralServiceInterface->blogRand();
-        return view('web.home',compact('blogRand'));
+        $distributors = $this->GeneralServiceInterface->allListing('distributor');
+        return view('web.home',compact('blogRand','distributors'));
     }
 
     public function dashboard() {
         $blogRand = $this->GeneralServiceInterface->blogRand();
-        return view('web.dash',compact('blogRand'));
+        $listing = $this->GeneralServiceInterface->userListing(Auth::id());
+        return view('web.dash',compact('blogRand','listing'));
+    }
+
+    public function add_listing() {
+        $blogRand = $this->GeneralServiceInterface->blogRand();
+        return view('web.addlisting',compact('blogRand'));
+    }
+
+    public function listingdetail($slug) {
+        $blogRand = $this->GeneralServiceInterface->blogRand();
+        $listing = $this->GeneralServiceInterface->listingDetail($slug,'distributor');
+        return view('web.listingdetail',compact('blogRand','listing'));
     }
 
     public function subcats($id){
@@ -31,24 +45,30 @@ class GeneralController extends Controller
     }
 
     public function listsubmit(Request $request) {
-        $this->validate($request, [
-            'name' => 'required',
-            'establishment' => 'required',
-            'pan' => 'required',
-            'gst' => 'required'
-        ],[
-            'name.required' => 'Brand name is required.',
-            'establishment.required' => 'Establishment year is required.',
-            'pan.required' => 'PAN is required.',
-            'gst.required' => 'GST is required.'
-        ]);
-        $data = [
-            'name' => $request->name,
-            'establishment' => $request->establishment,
-            'pan' => $request->pan,
-            'gst' => $request->gst
-        ];
-        $this->GeneralServiceInterface->saveList($data, $request->scats);
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'gst' => 'required',
+        //     'pan' => 'required',
+        //     'brand' => 'required',
+        //     'establishment' => 'required',
+        //     'anualsale_start' => 'required',
+        //     'anualsale_end' => 'required',
+        //     'anualsale_unit' => 'required',
+        //     'total_distributors' => 'required',
+        //     'space' => 'required',
+        //     'logo' => 'required',
+        //     'address' => 'required',
+        //     'city' => 'required',
+        //     'state' => 'required',
+        //     'zip' => 'required',
+        // ],[
+        //     'name.required' => 'Name is required.',
+        //     'brand.required' => 'Brand name is required.',
+        //     'establishment.required' => 'Establishment year is required.',
+        //     'pan.required' => 'PAN is required.',
+        //     'gst.required' => 'GST is required.'
+        // ]);
+        $this->GeneralServiceInterface->saveList($request->all(),$request->scats);
     }
     
     public function contactUsShow() {

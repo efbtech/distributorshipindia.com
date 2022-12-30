@@ -34,6 +34,18 @@ class GeneralServices implements GeneralServiceInterface
         return $this->GeneralInterface->blogRand();
     }
 
+    public function userListing($uid) {
+        return $this->GeneralInterface->userListing($uid);
+    }
+
+    public function allListing($type) {
+        return $this->GeneralInterface->allListing($type);
+    }
+
+    public function listingDetail($slug,$type) {
+        return $this->GeneralInterface->listingDetail($slug,$type);
+    }
+
     public function subCat($id)
     {
         return $this->GeneralInterface->subCat($id);
