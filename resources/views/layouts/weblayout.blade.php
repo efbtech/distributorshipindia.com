@@ -89,37 +89,7 @@
    <div class="collapse navbar-collapse" id="navbarResponsive">
        <ul class="navbar-nav ml-auto">
        
-     <!-- <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a> </li> -->
-     
-       <li class="nav-item text-white"> <a class="nav-link" href="request-callback.php">Request A callback</a> </li>
-     
-       <!-- <li class="nav-item text-white"> <a class="nav-link" href="become-member.php">Become a member</a> </li> -->
-
-       
-       
-<div class="dropdown">
-
-<!--  <a class="btn btn- dropdown-toggle text-white" href="index.php" role="button" id="dropdownMenuLink" d
-ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-       </a> -->
-     <div class="dropdown-menu text-white"  aria-labelledby="dropdownMenuLink">
-         
-   <a class="dropdown-item" href="create_post.php">
-           Dashboard </a>
-     <a class="dropdown-item" href="my_enquiries.php">
-           My Enquiries </a>
-          
-         <a class="dropdown-item " href="home.php">My Profile</a>
-        <!-- <a class="dropdown-item" href="my-distributors.php">Your</a> -->
-          <a class="dropdown-item" href="logout.php">Logout</a>
-   
-
-     </div>  
-        </div>
-        <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
+       @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -132,16 +102,18 @@ ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Hi {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('dashboard') }}">
+                              </a> 
+                            </li> 
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ url('dashboard') }}">
                                         {{ __('Dashboard') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    </a> 
+                            </li> 
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -150,10 +122,9 @@ ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
                             </li>
+                            
                         @endguest
-                    </ul>
 
 <li class="nav-item text-white"><a class="nav-link" href="#"><i class="fa fa-phone fa-rotate-90 blink"></i> +91-99905 39502</a></li> 
 
@@ -344,6 +315,26 @@ ata-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <script src="{{asset('js/validate.js')}}"></script>
     <script src="{{asset('js/validateadditional.js')}}"></script>
     <script src="{{asset('js/validations.js')}}"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  
+    <script type="text/javascript">
+            tinymce.init({
+            selector: 'textarea.tinymce-editor',
+            height: 300,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount', 'image'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css'
+        });
+    </script>
+
 
     
     

@@ -19,11 +19,15 @@ Auth::routes();
 //-------------------------- Admin Setup 11-Nov-2022 --------------------------------------------------
 //---------------------------------------------Web Routes---------------------------------------------
 Route::get('/', [GeneralController::class, 'home']);
-Route::get('/dashboard', [GeneralController::class, 'dashboard']);
-Route::get('/add-listing', [GeneralController::class, 'add_listing']);
+
 Route::get('web/subcats/{id}', [GeneralController::class, 'subcats']);
-Route::post('web/listsubmit',[GeneralController::class, 'listsubmit']);
 Route::get('/distributor/{slug}', [GeneralController::class, 'listingdetail']);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [GeneralController::class, 'dashboard']);
+    Route::get('/add-listing', [GeneralController::class, 'add_listing']);
+    Route::post('web/listsubmit',[GeneralController::class, 'listsubmit']);
+});
 
 
 

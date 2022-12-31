@@ -20,7 +20,8 @@ class GeneralController extends Controller
     public function home() {
         $blogRand = $this->GeneralServiceInterface->blogRand();
         $distributors = $this->GeneralServiceInterface->allListing('distributor');
-        return view('web.home',compact('blogRand','distributors'));
+        $franchise = $this->GeneralServiceInterface->allListing('franchise');
+        return view('web.home',compact('blogRand','distributors','franchise'));
     }
 
     public function dashboard() {
