@@ -1,5 +1,6 @@
 <form action="{{ url('web/listsubmit') }}" method="post" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="listing_type" value="distributor">
     <div class="form-row">
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="mode" id="mode1" value="appoint" checked>

@@ -88,7 +88,7 @@
       </div>
     </section>
      
-    </div>
+  </div>
 
 <div class="container" >
     <div class="row">
@@ -98,7 +98,20 @@
     </div>
   </div>
 
-<?php //include('franchises-card.php') ?>
+  <div class="container sec-box">
+    <!-- Distributorship div -->
+    <section class="mt-1 mb-3">
+      <h5 class="sec_headline">Frenchises Opportunities</h5>
+      <div class="row">
+        @foreach($franchise as $fr)
+        <div class="col-sm-3">
+          @include('web.listing.listing_card',['logo'=>$fr->logo, 'name'=>$fr->name, 'anualsale_start'=>$distributor->anualsale_start, 'anualsale_end'=>$distributor->anualsale_end, 'anualsale_unit'=>$fr->anualsale_unit,'slugroot'=>'franchise', 'slug'=>$fr->slug])
+        </div>
+        @endforeach
+      </div>
+    </section>
+     
+  </div>
 
 <div class="container" >
     <div class="row">
@@ -108,7 +121,20 @@
     </div>
   </div>
 
-<?php //include('salesagent_card.php') ?>
+  <div class="container sec-box">
+    <!-- Distributorship div -->
+    <section class="mt-1 mb-3">
+      <h5 class="sec_headline">Sales Agents Opportunities</h5>
+      <div class="row">
+        @foreach($distributors as $distributor)
+        <div class="col-sm-3">
+          @include('web.listing.listing_card',['logo'=>$distributor->logo, 'name'=>$distributor->name, 'anualsale_start'=>$distributor->anualsale_start, 'anualsale_end'=>$distributor->anualsale_end, 'anualsale_unit'=>$distributor->anualsale_unit,'slugroot'=>'distributor', 'slug'=>$distributor->slug])
+        </div>
+        @endforeach
+      </div>
+    </section>
+     
+  </div>
 
 <!-- Free Advice - Ask Our Experts -->
     <?php //include('contact_us.php')  ?>
@@ -116,38 +142,7 @@
     
     
     <!-- testimonials -->
-    <div class="container-fluid">
-      <div class="container sec-box">
-        <section class="mt-5 mb-3">
-          <div class="row">
-            <div class="col-md-9 col-sm-9 col-12 mb-5 ">
-              <?php
-              //include('testimonials.php');
-              ?>
-            </div>
-            <div class="col-md-3 col-sm-3 col-12 text-center mt-3">
-              <h5>Register In</h5>
-              <button type="button" class="btn blue-btn px-5 py-2 ">
-              <a class="color-white"   href="registration.php">Distributors</a>
-              </button>
-              <hr>
-              <h5>Register In</h5>
-              <button type="button" class="btn blue-btn px-5 py-2">
-              <a class="color-white" href="registration.php">Franchisees</a>
-              
-              </button>
-              <hr>
-              <h5>Register In</h5>
-              <button type="button" class="btn blue-btn px-5 py-2">
-              <a class="color-white"   href="registration.php">Sales Agents</a>
-              
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
-      
-    </div>
+    
     <hr>
     <!-- footer -->
     
