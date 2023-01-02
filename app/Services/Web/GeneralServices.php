@@ -24,6 +24,11 @@ class GeneralServices implements GeneralServiceInterface
         $this->GeneralInterface->saveList($request,$cats);
     }
 
+    public function search($request,$type)
+    {
+        $this->GeneralInterface->search($request,$type);
+    }
+
     public function blogList()
     {
         return $this->GeneralInterface->blogList();

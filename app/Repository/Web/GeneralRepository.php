@@ -23,6 +23,14 @@ class GeneralRepository implements GeneralInterface
         QueryModel::create($request);
     }
 
+    public function search($request,$type) {
+        if($type == 'distributor'){
+            $data = Distributor::where('name','like','%'.$request['searchkeywords'].'%')->get();
+            //print_r($data);
+            return $data;
+        }
+    }
+
     
     /*
     |--------------------------------------------------------------------------

@@ -8,6 +8,8 @@ Interface GeneralServiceInterface
 
     public function saveList($request,$cats);
 
+    public function search($request,$type);
+
     public function blogList();
 
     public function blogRand();
