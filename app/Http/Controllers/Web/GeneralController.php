@@ -71,6 +71,13 @@ class GeneralController extends Controller
         // ]);
         $this->GeneralServiceInterface->saveList($request->all(),$request->scats);
     }
+
+    public function searchresult(Request $request) {
+        $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
+        echo 'Hi';
+        print_r($result);
+        //return view('web.distributor_search',compact('result'));
+    }
     
     public function contactUsShow() {
         //return view('web.contact-us');

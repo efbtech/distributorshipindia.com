@@ -1,4 +1,5 @@
-<form action="distributors-search.php" method="POST">
+<form action="{{ url('/web/search/distributor') }}" method="POST">
+  @csrf
                 <div class="container">
                   
                   <div class="row">
