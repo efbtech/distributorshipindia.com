@@ -26,7 +26,6 @@ class GeneralRepository implements GeneralInterface
     public function search($request,$type) {
         if($type == 'distributor'){
             $data = Distributor::where('name','like','%'.$request['searchkeywords'].'%')->get();
-            //print_r($data);
             return $data;
         }
     }
@@ -89,6 +88,7 @@ class GeneralRepository implements GeneralInterface
             $uploadedImagePathLogo = $imageUploadPath.'/'.$uploadedImageName;
             $listing = new Distributor;
             $listing->name = $request['name'];
+            $listing->user_id = auth()->user()->id;
             $listing->mode = $request['mode'];
             $listing->gst = $request['gst'];
             $listing->pan = $request['pan'];

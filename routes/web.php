@@ -23,6 +23,7 @@ Route::get('/', [GeneralController::class, 'home']);
 Route::get('web/subcats/{id}', [GeneralController::class, 'subcats']);
 Route::get('/distributor/{slug}', [GeneralController::class, 'listingdetail']);
 Route::post('/web/search/distributor', [GeneralController::class, 'searchresult']);
+Route::post('/web/search/franchise', [GeneralController::class, 'searchresult']);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [GeneralController::class, 'dashboard']);

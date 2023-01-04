@@ -73,10 +73,18 @@ class GeneralController extends Controller
     }
 
     public function searchresult(Request $request) {
-        $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
-        echo 'Hi';
-        print_r($result);
-        //return view('web.distributor_search',compact('result'));
+        //dd($request->all());
+        if($request->stype == 'distributor'){
+            $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
+            $blogRand = $this->GeneralServiceInterface->blogRand();
+            return view('web.distributor_search',compact('result','blogRand'));
+        }
+        if($request->stype == 'franchise'){
+            $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
+            $blogRand = $this->GeneralServiceInterface->blogRand();
+            return view('web.franchise_search',compact('result','blogRand'));
+        }
+        
     }
     
     public function contactUsShow() {

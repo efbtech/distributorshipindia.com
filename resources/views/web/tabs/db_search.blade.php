@@ -1,6 +1,7 @@
 <form action="{{ url('/web/search/distributor') }}" method="POST">
   @csrf
-                <div class="container">
+    <input type="hidden" name="stype" value="distributor">            
+    <div class="container">
                   
                   <div class="row">
                     

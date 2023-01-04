@@ -81,7 +81,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top"  >
 
 
- <div class="container"> <a class="navbar-brand" href="index.php">
+ <div class="container"> <a class="navbar-brand" href="{{ url('/') }}">
 <img src="{{ asset('assets/admin/images/logo/logo.png') }}" style = "width: 170px; height: auto;" alt="">  </a>
 
 
