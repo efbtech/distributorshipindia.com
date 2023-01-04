@@ -26,7 +26,7 @@ class GeneralServices implements GeneralServiceInterface
 
     public function search($request,$type)
     {
-        $this->GeneralInterface->search($request,$type);
+        return $this->GeneralInterface->search($request,$type);
     }
 
     public function blogList()
