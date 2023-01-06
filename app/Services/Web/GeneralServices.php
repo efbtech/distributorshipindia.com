@@ -24,6 +24,14 @@ class GeneralServices implements GeneralServiceInterface
         $this->GeneralInterface->saveList($request,$cats);
     }
 
+    public function saveImage($request) {
+        $this->GeneralInterface->saveImage($request);
+    }
+
+    public function getListingCats($listing_id, $type) {
+        return $this->GeneralInterface->getListingCats($listing_id, $type);
+    }
+
     public function search($request,$type)
     {
         return $this->GeneralInterface->search($request,$type);
@@ -41,6 +49,10 @@ class GeneralServices implements GeneralServiceInterface
 
     public function userListing($uid) {
         return $this->GeneralInterface->userListing($uid);
+    }
+
+    public function gallery($uid,$type,$listing_id) {
+        return $this->GeneralInterface->gallery($uid,$type,$listing_id);
     }
 
     public function allListing($type) {

@@ -27,8 +27,10 @@ Route::post('/web/search/franchise', [GeneralController::class, 'searchresult'])
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [GeneralController::class, 'dashboard']);
+    Route::get('/dash/gallery/{id}', [GeneralController::class, 'dash_gallery']);
     Route::get('/add-listing', [GeneralController::class, 'add_listing']);
     Route::post('web/listsubmit',[GeneralController::class, 'listsubmit']);
+    Route::post('web/addgallery',[GeneralController::class, 'addgallery']);
 });
 
 
