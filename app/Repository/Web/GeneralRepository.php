@@ -9,6 +9,7 @@ use App\Models\Franchise;
 use App\Models\listing_cat;
 use App\Services\Images\ImageServices;
 use App\Interfaces\Web\GeneralInterface;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class GeneralRepository implements GeneralInterface
@@ -36,6 +37,24 @@ class GeneralRepository implements GeneralInterface
     | Distributors abd categories save
     |--------------------------------------------------------------------------
     */
+    public function saveImage($request) {
+        if(Auth::user()->intrested == 0) {
+                $mypost = Distributor::where('id',$request['id'])
+                ->where('user_id',$request['user_id'])
+                ->first(['gallery']);
+                $gals = json_decode($mypost->gallery);
+                $gals[] = $request['filename'];
+                $dis = Distributor::find($request['id']);
+                $dis->gallery = json_encode($gals);
+                $dis->save();
+        }
+    }
+
+    private function makeslug($a) {
+        $slug = str_replace(' ','',$a);
+        return preg_replace('/[^A-Za-z0-9\-]/', '', $slug);
+    }
+
     public function saveList($request,$cats) {
         //dd($request);
         if(isset($request['listing_type']) && $request['listing_type'] == 'franchise'){
@@ -70,6 +89,7 @@ class GeneralRepository implements GeneralInterface
             $listing->meta_title = $request['meta_title'];
             $listing->meta_desc = $request['meta_desc'];
             $listing->status = 1;
+            $listing->slug = $this->makeslug($request['name']);
             $listing->save();
             
             foreach($cats as $c) {
@@ -104,6 +124,7 @@ class GeneralRepository implements GeneralInterface
             $listing->city = $request['city'];
             $listing->state = $request['state'];
             $listing->zip = $request['zip'];
+            $listing->slug = $this->makeslug($request['name']);
             $listing->save();
             
             foreach($cats as $c) {
@@ -139,6 +160,13 @@ class GeneralRepository implements GeneralInterface
         return $data;
     }
 
+    public function gallery($uid,$type,$listing_id) {
+        if($type == 0) {
+            $data = Distributor::where('id',$listing_id)->first(['gallery','name']);
+            return $data;
+        }
+    }
+
     public function allListing($type) {
         if($type == 'distributor') {
             $data = Distributor::orderBy('id', 'desc')->get();
@@ -154,6 +182,11 @@ class GeneralRepository implements GeneralInterface
             $data = Distributor::where('slug',$slug)->first();
         }
         return $data;
+    }
+
+    public function getListingCats($listing_id, $type) {
+        $cats = listing_cat::leftJoin('categories', 'categories.id', '=', 'listing_cat.category_id')->where('listing_id',$listing_id)->get(['categories.id','categories.name']);
+        return $cats;
     }
 
     public function subCat($id) {

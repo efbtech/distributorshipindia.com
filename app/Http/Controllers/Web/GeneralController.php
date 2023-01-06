@@ -25,9 +25,21 @@ class GeneralController extends Controller
     }
 
     public function dashboard() {
+        //dd(Auth::user()->intrested);
         $blogRand = $this->GeneralServiceInterface->blogRand();
+        
         $listing = $this->GeneralServiceInterface->userListing(Auth::id());
         return view('web.dash',compact('blogRand','listing'));
+    }
+
+    public function dash_gallery($id) {
+        $mygals = $this->GeneralServiceInterface->gallery(Auth::id(),Auth::user()->intrested,$id);
+        if($mygals->gallery == null) {
+            $gals = [];
+        } else {
+            $gals = json_decode($mygals->gallery);
+        }
+        return view('web.listing.gallery',compact('gals','id','mygals'));
     }
 
     public function add_listing() {
@@ -38,7 +50,13 @@ class GeneralController extends Controller
     public function listingdetail($slug) {
         $blogRand = $this->GeneralServiceInterface->blogRand();
         $listing = $this->GeneralServiceInterface->listingDetail($slug,'distributor');
-        return view('web.listingdetail',compact('blogRand','listing'));
+        $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, Auth::user()->intrested);
+        $mcats=[];
+        foreach($listingcats as $lc) {
+            $mcats[] = $lc->name;
+        }
+        $listCat = implode(',', $mcats);
+        return view('web.listingdetail',compact('blogRand','listing', 'listCat'));
     }
 
     public function subcats($id){
@@ -46,30 +64,47 @@ class GeneralController extends Controller
     }
 
     public function listsubmit(Request $request) {
-        // $this->validate($request, [
-        //     'name' => 'required',
-        //     'gst' => 'required',
-        //     'pan' => 'required',
-        //     'brand' => 'required',
-        //     'establishment' => 'required',
-        //     'anualsale_start' => 'required',
-        //     'anualsale_end' => 'required',
-        //     'anualsale_unit' => 'required',
-        //     'total_distributors' => 'required',
-        //     'space' => 'required',
-        //     'logo' => 'required',
-        //     'address' => 'required',
-        //     'city' => 'required',
-        //     'state' => 'required',
-        //     'zip' => 'required',
-        // ],[
-        //     'name.required' => 'Name is required.',
-        //     'brand.required' => 'Brand name is required.',
-        //     'establishment.required' => 'Establishment year is required.',
-        //     'pan.required' => 'PAN is required.',
-        //     'gst.required' => 'GST is required.'
-        // ]);
+         $this->validate($request, [
+             'name' => 'required',
+             'gst' => 'required',
+             'pan' => 'required',
+             'brand' => 'required',
+             'establishment' => 'required',
+             'anualsale_start' => 'required',
+             'anualsale_end' => 'required',
+             'anualsale_unit' => 'required',
+             'total_distributors' => 'required',
+             'space' => 'required',
+             'logo' => 'required',
+             'address' => 'required',
+             'city' => 'required',
+             'state' => 'required',
+             'zip' => 'required',
+         ],[
+             'name.required' => 'Name is required.',
+             'brand.required' => 'Brand name is required.',
+             'establishment.required' => 'Establishment year is required.',
+             'pan.required' => 'PAN is required.',
+             'gst.required' => 'GST is required.'
+         ]);
         $this->GeneralServiceInterface->saveList($request->all(),$request->scats);
+        return redirect('/dashboard');
+    }
+
+    public function addgallery(Request $request) {
+        /*$validatedData = $request->validate([
+            'file' => 'required|jpg,jpeg,png|max:2048',
+        ]);*/
+        //dd($request);
+        if($request->file('logo')) {
+            $file = $request->file('logo');
+            $filename = time().'_'.$file->getClientOriginalName();
+            if(Auth::user()->intrested == 0) {
+                $location = 'public/assets/uploads/distributors/gallary';
+                $file->move($location,$filename);
+            }
+            $this->GeneralServiceInterface->saveImage(['id'=>$request->listing_id, 'user_id' => Auth::id(), 'type'=>Auth::user()->intrested, 'filename'=>$filename]);
+        }
     }
 
     public function searchresult(Request $request) {

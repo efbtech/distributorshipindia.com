@@ -8,6 +8,10 @@ Interface GeneralServiceInterface
 
     public function saveList($request,$cats);
 
+    public function saveImage($request);
+
+    public function getListingCats($listing_id, $type);
+
     public function search($request,$type);
 
     public function blogList();
@@ -15,6 +19,8 @@ Interface GeneralServiceInterface
     public function blogRand();
 
     public function userListing($uid);
+
+    public function gallery($uid,$type,$listing_id);
 
     public function allListing($type);
 

@@ -17,18 +17,25 @@
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent" style="border: 1px solid #CCC; background: #FFF; margin-top: -1px; padding: 17px;">
-  <h5>You are interested in <span style="background: #102e4c;color: #FFF;padding: 6px;border-radius: 11px;">@if(auth()->user()->intrested == 1) Frenchise @elseif(auth()->user()->intrested == 2) Sales Agent @else Distributors @endif</span></h5>
-  @if($listing)
-  @foreach($listing as $list)
-  <div class="card">
-    <div class="row">
-      <div class="col-sm-3"><img src="{{ $list->logo }}" style="width:150px;"></div>
-      <div class="col-sm-6 mt-3"><strong>{{ $list->name }}</strong><br>{{ $list->anualsale_start }} - {{ $list->anualsale_end }} {{ $list->anualsale_unit }}<br>Brand: {{ $list->brand }}</div>
-      <div class="col-sm-3 mt-3"><a class="btn btn-sm btn-danger" href="{{ url('/dash/gallery/') }}/{{ $list->id }}">Gallery</a> <a class="btn btn-sm btn-danger" href="#">View</a> <a class="btn btn-sm btn-danger" href="#">Edit</a></div>
+  <h5 class="mb-3">Gallery for Post - {{ $mygals->name }}</h5>
+  <div>
+  <form action="{{ url('web/addgallery') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" name="listing_id" value="{{ $id }}">
+    <input type="file" name="logo"> <input type="submit" name="upload" value="Upload" />
+  </form>
+  </div>
+  <div class="container">
+    <div class="row">  
+    @if(count($gals) > 0)
+    @foreach($gals as $gal)
+    <div class="col-sm-3">
+      <img class="img-thumbnail" src="{{ url('assets/uploads/distributors/gallary/') }}/{{$gal}}" />
+    </div>
+    @endforeach
+    @endif
     </div>
   </div>
-  @endforeach
-  @endif
 </div>
         </div>
     </div>
