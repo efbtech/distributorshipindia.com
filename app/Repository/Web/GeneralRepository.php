@@ -160,7 +160,7 @@ class GeneralRepository implements GeneralInterface
         return $data;
     }
 
-    public function gallery($uid,$type,$listing_id) {
+    public function gallery($type,$listing_id) {
         if($type == 0) {
             $data = Distributor::where('id',$listing_id)->first(['gallery','name']);
             return $data;
@@ -179,7 +179,7 @@ class GeneralRepository implements GeneralInterface
 
     public function listingDetail($slug,$type) {
         if($type == 'distributor') {
-            $data = Distributor::where('slug',$slug)->first();
+            $data = Distributor::leftJoin('users','users.id','=','distributors.user_id')->where('slug',$slug)->first(['distributors.*','users.name as contactname']);
         }
         return $data;
     }

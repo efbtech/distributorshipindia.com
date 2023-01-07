@@ -33,7 +33,7 @@ class GeneralController extends Controller
     }
 
     public function dash_gallery($id) {
-        $mygals = $this->GeneralServiceInterface->gallery(Auth::id(),Auth::user()->intrested,$id);
+        $mygals = $this->GeneralServiceInterface->gallery(Auth::user()->intrested,$id);
         if($mygals->gallery == null) {
             $gals = [];
         } else {
@@ -50,13 +50,19 @@ class GeneralController extends Controller
     public function listingdetail($slug) {
         $blogRand = $this->GeneralServiceInterface->blogRand();
         $listing = $this->GeneralServiceInterface->listingDetail($slug,'distributor');
-        $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, Auth::user()->intrested);
+        $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, 0);
+        $mygals = $this->GeneralServiceInterface->gallery(0,$listing->id);
         $mcats=[];
         foreach($listingcats as $lc) {
             $mcats[] = $lc->name;
         }
         $listCat = implode(',', $mcats);
-        return view('web.listingdetail',compact('blogRand','listing', 'listCat'));
+        if($mygals->gallery == null) {
+            $gals = [];
+        } else {
+            $gals = json_decode($mygals->gallery);
+        }
+        return view('web.listingdetail',compact('blogRand','listing', 'listCat','gals'));
     }
 
     public function subcats($id){
