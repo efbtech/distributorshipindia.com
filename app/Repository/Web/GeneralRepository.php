@@ -25,8 +25,16 @@ class GeneralRepository implements GeneralInterface
     }
 
     public function search($request,$type) {
-        if($type == 'distributor'){
+        if($type == 0){
             $data = Distributor::where('name','like','%'.$request['searchkeywords'].'%')->get();
+            return $data;
+        }
+        if($type == 1){
+            $data = Franchise::where('name','like','%'.$request['searchkeywords'].'%')->get();
+            return $data;
+        }
+        if($type == 2){
+            $data = Franchise::where('name','like','%'.$request['searchkeywords'].'%')->get();
             return $data;
         }
     }
@@ -165,6 +173,10 @@ class GeneralRepository implements GeneralInterface
             $data = Distributor::where('id',$listing_id)->first(['gallery','name']);
             return $data;
         }
+        if($type == 1) {
+            $data = Franchise::where('id',$listing_id)->first(['gallery','name']);
+            return $data;
+        }
     }
 
     public function allListing($type) {
@@ -178,8 +190,11 @@ class GeneralRepository implements GeneralInterface
     }
 
     public function listingDetail($slug,$type) {
-        if($type == 'distributor') {
+        if($type == 0) {
             $data = Distributor::leftJoin('users','users.id','=','distributors.user_id')->where('slug',$slug)->first(['distributors.*','users.name as contactname']);
+        }
+        if($type == 1) {
+            $data = Franchise::leftJoin('users','users.id','=','franchisees.user_id')->where('slug',$slug)->first(['franchisees.*','users.name as contactname']);
         }
         return $data;
     }

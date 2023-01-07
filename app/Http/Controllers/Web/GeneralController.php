@@ -49,7 +49,7 @@ class GeneralController extends Controller
 
     public function listingdetail($slug) {
         $blogRand = $this->GeneralServiceInterface->blogRand();
-        $listing = $this->GeneralServiceInterface->listingDetail($slug,'distributor');
+        $listing = $this->GeneralServiceInterface->listingDetail($slug,0);
         $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, 0);
         $mygals = $this->GeneralServiceInterface->gallery(0,$listing->id);
         $mcats=[];
@@ -62,7 +62,46 @@ class GeneralController extends Controller
         } else {
             $gals = json_decode($mygals->gallery);
         }
-        return view('web.listingdetail',compact('blogRand','listing', 'listCat','gals'));
+        $list_type = 'Distributor';
+        return view('web.listingdetail',compact('blogRand','listing', 'listCat','gals','list_type'));
+    }
+
+    public function listingdetail_fr($slug) {
+        $blogRand = $this->GeneralServiceInterface->blogRand();
+        $listing = $this->GeneralServiceInterface->listingDetail($slug,1);
+        $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, 1);
+        $mygals = $this->GeneralServiceInterface->gallery(1,$listing->id);
+        $mcats=[];
+        foreach($listingcats as $lc) {
+            $mcats[] = $lc->name;
+        }
+        $listCat = implode(',', $mcats);
+        if($mygals->gallery == null) {
+            $gals = [];
+        } else {
+            $gals = json_decode($mygals->gallery);
+        }
+        $list_type = 'Franchise';
+        return view('web.listingdetail',compact('blogRand','listing', 'listCat','gals','list_type'));
+    }
+
+    public function listingdetail_sa($slug) {
+        $blogRand = $this->GeneralServiceInterface->blogRand();
+        $listing = $this->GeneralServiceInterface->listingDetail($slug,2);
+        $listingcats = $this->GeneralServiceInterface->getListingCats($listing->id, 2);
+        $mygals = $this->GeneralServiceInterface->gallery(2,$listing->id);
+        $mcats=[];
+        foreach($listingcats as $lc) {
+            $mcats[] = $lc->name;
+        }
+        $listCat = implode(',', $mcats);
+        if($mygals->gallery == null) {
+            $gals = [];
+        } else {
+            $gals = json_decode($mygals->gallery);
+        }
+        $list_type = 'Franchise';
+        return view('web.listingdetail',compact('blogRand','listing', 'listCat','gals','list_type'));
     }
 
     public function subcats($id){
@@ -115,13 +154,13 @@ class GeneralController extends Controller
 
     public function searchresult(Request $request) {
         //dd($request->all());
-        if($request->stype == 'distributor'){
-            $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
+        if($request->stype == '0'){
+            $result = $this->GeneralServiceInterface->search($request->all(),0);
             $blogRand = $this->GeneralServiceInterface->blogRand();
             return view('web.distributor_search',compact('result','blogRand'));
         }
-        if($request->stype == 'franchise'){
-            $result = $this->GeneralServiceInterface->search($request->all(),'distributor');
+        if($request->stype == 1){
+            $result = $this->GeneralServiceInterface->search($request->all(),1);
             $blogRand = $this->GeneralServiceInterface->blogRand();
             return view('web.franchise_search',compact('result','blogRand'));
         }
@@ -129,14 +168,14 @@ class GeneralController extends Controller
     }
     
     public function contactUsShow() {
-        //return view('web.contact-us');
+        return view('web.contact-us');
     }
     public function comingSoon() {
         //return view('web.coming-soon');
     }
 
     public function aboutUs() {
-        //return view('web.about-us');
+        return view('web.about-us');
     }
 
     /*public function campaigns(Request $request) {

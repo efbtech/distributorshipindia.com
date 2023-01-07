@@ -69,7 +69,7 @@
  <meta itemprop="height" content="300">
 </span>
     
-    <header style="height:96px;">
+    <header>
       
       
     </nav>
@@ -156,16 +156,16 @@
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
     <h6 class=" mb-4 font-weight-bold">Distributorship India</h6>
  <p>
-          <a href="index.php">About us</a>
+          <a href="{{ url('web/about-us') }}">About us</a>
         </p>
          <p>
-          <a href="registration.php">Register Free</a>
+          <a href="{{ url('register') }}">Register Free</a>
         </p>
           <p>
           <a href="request-callback.php">Request A callback</a>
         </p>
              <p>
-   <a href="user_login.php">Sign In</a>
+   <a href="{{ url('login') }}">Sign In</a>
         </p>
         
         
