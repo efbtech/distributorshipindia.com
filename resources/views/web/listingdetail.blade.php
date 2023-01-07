@@ -18,7 +18,7 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item hometab col-lg-3 col-md-3 col-sm-3 col-12 active ">
               <a class="hometab-link hometab " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" >
-              Distributors Search</a>
+              {{ $list_type }}s Search</a>
             </li>
             
           </ul>
@@ -29,8 +29,14 @@
             <!-- ***********Distributors Search*********** -->
             <div class="tab-pane fade show active hometab pt-4 pb-4" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-            @include('web.tabs.db_search',['cats'=>$blogRand['cats']])
-            <!-- ***********End Distributors Search*********** -->
+            @if($list_type == 'Distributor')
+              @include('web.tabs.db_search',['cats'=>$blogRand['cats']])
+            @elseif($list_type == 'Franchise')
+              @include('web.tabs.franchise_search_filter',['cats'=>$blogRand['cats']])
+            @else
+              @include('web.tabs.salesagent_search_filter',['cats'=>$blogRand['cats']])
+            @endif
+              <!-- ***********End Distributors Search*********** -->
 
 
 
@@ -68,7 +74,7 @@
                     <div class="row">
                       <div class="col-md-4">
                         <label class="border bscolor bg-white rounded-0 form-control h-75 py-2 px-2 "><span class="fscolor">Mode:</span><br>
-                        <h6>@if($listing->mode == 'appoint') Appoint for Distributors @else Become Distributor @endif</h6>
+                        <h6>@if($listing->mode == 'appoint') Appoint for {{ $list_type }} @else Become {{ $list_type }} @endif</h6>
                       </label>
                     </div>
                     <div class="col-md-4">

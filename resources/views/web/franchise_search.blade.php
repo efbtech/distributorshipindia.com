@@ -40,10 +40,10 @@
   </header>
 <div class="container">
     <div class="row">
-    @if(count($result) > 1)
-        @foreach($result as $distributor)
+    @if(count($result) > 0)
+        @foreach($result as $franchise)
         <div class="col-sm-3">
-          @include('web.listing.listing_card',['logo'=>url($distributor->logo), 'name'=>$distributor->name, 'anualsale_start'=>$distributor->anualsale_start, 'anualsale_end'=>$distributor->anualsale_end, 'anualsale_unit'=>$distributor->anualsale_unit,'slugroot'=>'distributor', 'slug'=>$distributor->slug])
+          @include('web.listing.listing_card',['logo'=>url($franchise->logo), 'name'=>$franchise->name, 'anualsale_start'=>$franchise->anualsale_start, 'anualsale_end'=>$franchise->anualsale_end, 'anualsale_unit'=>$franchise->anualsale_unit,'slugroot'=>'franchise', 'slug'=>$franchise->slug])
         </div>
         @endforeach
     @else

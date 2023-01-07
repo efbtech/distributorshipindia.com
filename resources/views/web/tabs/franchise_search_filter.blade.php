@@ -1,6 +1,6 @@
 <form action="{{ url('/web/search/franchise') }}" method="POST">
   @csrf
-<input type="hidden" name="stype" value="franchise">
+<input type="hidden" name="stype" value="1">
                 <div class="container">
                   
                   <div class="row">

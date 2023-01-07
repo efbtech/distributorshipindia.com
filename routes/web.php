@@ -22,8 +22,14 @@ Route::get('/', [GeneralController::class, 'home']);
 
 Route::get('web/subcats/{id}', [GeneralController::class, 'subcats']);
 Route::get('/distributor/{slug}', [GeneralController::class, 'listingdetail']);
+Route::get('/franchise/{slug}', [GeneralController::class, 'listingdetail_fr']);
+Route::get('/sales-agent/{slug}', [GeneralController::class, 'listingdetail_sa']);
 Route::post('/web/search/distributor', [GeneralController::class, 'searchresult']);
 Route::post('/web/search/franchise', [GeneralController::class, 'searchresult']);
+Route::get('web/about-us', [GeneralController::class, 'aboutUs']);
+Route::get('web/contact-us', [GeneralController::class, 'contactUsShow']);
+
+/*** ---------------------------- Below are not in use **********************/
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [GeneralController::class, 'dashboard']);
@@ -35,9 +41,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-Route::get('web/contact-us', [GeneralController::class, 'contactUsShow']);
+
 Route::post('web/contact-us-form',[GeneralController::class, 'contactUs']);
-Route::get('web/about-us', [GeneralController::class, 'aboutUs']);
+
 Route::get('web/our-donor', [GeneralController::class, 'ourDonorList']);
 Route::get('web/campaigns', [GeneralController::class, 'campaigns']);
 Route::get('web/campaign-details/{slug}', [GeneralController::class, 'campaignDetail']);

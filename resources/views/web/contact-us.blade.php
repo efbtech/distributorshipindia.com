@@ -1,10 +1,9 @@
 @extends('layouts.weblayout')
 @section('content')
-<section class="campaigns-title">
+<section class="campaigns-title mt-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12 align-self-center">
-                <h3>Apni Roti</h3>
                 <h2>Contact Us</h2>
             </div>
         </div>
@@ -18,38 +17,9 @@
                 <p class="pb-5">Lorem Ipsum passages, and more recently with desktop publishing software <br> like Aldus
                     PageMaker including versions of Lorem Ipsum.</p>
             </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4 pb-5">
-                <div class="message__details">
-                    <div class="d-flex justify-content-center align-items-center"><span
-                            class="message__icon d-flex justify-content-center align-items-center"><img
-                                src="{{ asset('assets/web/image/contact/phone.png') }}"></span></div>
-                    <h6 class="py-3">Phone</h6>
-                    <p>+91 9876543210</p>
-                    <p>+91 9878764343</p>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4 pb-5">
-                <div class="message__details">
-                    <div class="d-flex justify-content-center align-items-center"><span
-                            class="message__icon d-flex justify-content-center align-items-center"><img
-                                src="{{ asset('assets/web/image/contact/email.png') }}"></span></div>
-                    <h6 class="py-3">Email</h6>
-                    <p>apniroti32@gmail.com</p>
-                    <p>support32@apniroti.com</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4 pb-5">
-                <div class="message__details p-4">
-                    <div class="d-flex justify-content-center align-items-center"><span
-                            class="message__icon d-flex justify-content-center align-items-center"><img
-                                src="{{ asset('assets/web/image/contact/locationn.png') }}"></span></div>
-                    <h6 class="py-3">Our Address</h6>
-                    <p>B-07, Royal Building,<br>
-                        B Block, Sector 63, Noida,
-                        <br> Uttar Pradesh 201301
-                    </p>
-                </div>
-            </div>
+            
+            
+            
         </div>
     </div>
 </section>

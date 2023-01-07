@@ -1,4 +1,6 @@
-<form action="salesagent-search.php" method="POST">
+<form action="{{ url('/web/search/franchise') }}" method="POST">
+  @csrf
+<input type="hidden" name="stype" value="2">
                 <div class="container">
                   
                   <div class="row">
