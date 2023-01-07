@@ -51,8 +51,8 @@ class GeneralServices implements GeneralServiceInterface
         return $this->GeneralInterface->userListing($uid);
     }
 
-    public function gallery($uid,$type,$listing_id) {
-        return $this->GeneralInterface->gallery($uid,$type,$listing_id);
+    public function gallery($type,$listing_id) {
+        return $this->GeneralInterface->gallery($type,$listing_id);
     }
 
     public function allListing($type) {

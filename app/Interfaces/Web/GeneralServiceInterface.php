@@ -20,7 +20,7 @@ Interface GeneralServiceInterface
 
     public function userListing($uid);
 
-    public function gallery($uid,$type,$listing_id);
+    public function gallery($type,$listing_id);
 
     public function allListing($type);
 

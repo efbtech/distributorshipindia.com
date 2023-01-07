@@ -122,6 +122,31 @@
     </div>
 </div>
 
+<div class="container mb-1 sec-box">
+  <div class="row h-100">
+    <div class="col-sm-12 ">
+      <section class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-top-0  border-bottom-0 border-width:medium;">
+        <div class="row">
+          <div class="col-sm-12 bg-light border-top">
+            <h5 class="mt-2"><strong>Photo Gallary</strong></h5>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-top border-bottom">
+            <div class="row">  
+              @if(count($gals) > 0)
+              @foreach($gals as $gal)
+              <div class="col-sm-3">
+                <img class="img-thumbnail" src="{{ url('assets/uploads/distributors/gallary/') }}/{{$gal}}" />
+              </div>
+              @endforeach
+              @endif
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
 
 <div class="container mb-1 sec-box">
 <div class="row h-100">
@@ -290,7 +315,7 @@
       <strong><label class="mt-2">Name</label></strong>
     </div>
     <div class="col-lg-8 col-md-6 col-sm-6 col-6">
-      <label class="mt-2">{{ auth()->user()->name }}</label>
+      <label class="mt-2">{{ $listing->contactname }}</label>
       
     </div>
   </div>
