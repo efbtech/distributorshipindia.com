@@ -6,6 +6,7 @@ use App\Models\Web\QueryModel;
 use App\Models\Category;
 use App\Models\Distributor;
 use App\Models\Franchise;
+use App\Models\Salesagent;
 use App\Models\listing_cat;
 use App\Services\Images\ImageServices;
 use App\Interfaces\Web\GeneralInterface;
@@ -102,6 +103,7 @@ class GeneralRepository implements GeneralInterface
             
             foreach($cats as $c) {
                 $cat = new listing_cat;
+                $cat->listing_type = 1;
                 $cat->listing_id = $listing->id;
                 $cat->category_id = $c;
                 $cat->save();
@@ -137,6 +139,38 @@ class GeneralRepository implements GeneralInterface
             
             foreach($cats as $c) {
                 $cat = new listing_cat;
+                $cat->listing_type = 0;
+                $cat->listing_id = $listing->id;
+                $cat->category_id = $c;
+                $cat->save();
+            }
+        }
+        if(isset($request['listing_type']) && $request['listing_type'] == 'salesagent'){
+            $listing = new Salesagent;
+            $listing->business_profile = $request['business_profile'];
+            $listing->user_id = auth()->user()->id;
+            $listing->product_detail = $request['product_detail'];
+            $listing->target_customer = $request['target_customer'];
+            $listing->expected_work = $request['expected_work'];
+            $listing->client_needed = $request['client_needed'];
+            $listing->location = $request['location'];
+            $listing->anualsale_start = $request['anualsale_start'];
+            $listing->anualsale_end = $request['anualsale_end'];
+            $listing->anualsale_unit = $request['anualsale_unit'];
+            $listing->total_distributors = $request['total_distributors'];
+            $listing->space = $request['space'];
+            $listing->logo = $uploadedImagePathLogo;
+            $listing->address = $request['address'];
+            $listing->city = $request['city'];
+            $listing->state = $request['state'];
+            $listing->zip = $request['zip'];
+            $listing->mode = $request['mode'];
+            $listing->slug = $this->makeslug($request['name']);
+            $listing->save();
+            
+            foreach($cats as $c) {
+                $cat = new listing_cat;
+                $cat->listing_type = 2;
                 $cat->listing_id = $listing->id;
                 $cat->category_id = $c;
                 $cat->save();

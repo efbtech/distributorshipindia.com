@@ -109,29 +109,39 @@ class GeneralController extends Controller
     }
 
     public function listsubmit(Request $request) {
-         $this->validate($request, [
-             'name' => 'required',
-             'gst' => 'required',
-             'pan' => 'required',
-             'brand' => 'required',
-             'establishment' => 'required',
-             'anualsale_start' => 'required',
-             'anualsale_end' => 'required',
-             'anualsale_unit' => 'required',
-             'total_distributors' => 'required',
-             'space' => 'required',
-             'logo' => 'required',
-             'address' => 'required',
-             'city' => 'required',
-             'state' => 'required',
-             'zip' => 'required',
-         ],[
-             'name.required' => 'Name is required.',
-             'brand.required' => 'Brand name is required.',
-             'establishment.required' => 'Establishment year is required.',
-             'pan.required' => 'PAN is required.',
-             'gst.required' => 'GST is required.'
-         ]);
+        //salesagent
+        if($request->listing_type=='distributor' || $request->listing_type=='franchise') {
+            $this->validate($request, [
+                'name' => 'required',
+                'gst' => 'required',
+                'pan' => 'required',
+                'brand' => 'required',
+                'establishment' => 'required',
+                'anualsale_start' => 'required',
+                'anualsale_end' => 'required',
+                'anualsale_unit' => 'required',
+                'total_distributors' => 'required',
+                'space' => 'required',
+                'logo' => 'required',
+                'address' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'zip' => 'required',
+            ],[
+                'name.required' => 'Name is required.',
+                'brand.required' => 'Brand name is required.',
+                'establishment.required' => 'Establishment year is required.',
+                'pan.required' => 'PAN is required.',
+                'gst.required' => 'GST is required.'
+            ]);
+        } else {
+            $this->validate($request, [
+                'business_profile' => 'required',
+                'product_detail' => 'required',
+            ],[
+                'business_profile.required' => 'Profile is required.',
+            ]);
+        }
         $this->GeneralServiceInterface->saveList($request->all(),$request->scats);
         return redirect('/dashboard');
     }
