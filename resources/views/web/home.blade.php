@@ -126,9 +126,9 @@
     <section class="mt-1 mb-3">
       <h5 class="sec_headline">Sales Agents Opportunities</h5>
       <div class="row">
-        @foreach($distributors as $distributor)
+        @foreach($salesagent as $sa)
         <div class="col-sm-3">
-          @include('web.listing.listing_card',['logo'=>$distributor->logo, 'name'=>$distributor->name, 'anualsale_start'=>$distributor->anualsale_start, 'anualsale_end'=>$distributor->anualsale_end, 'anualsale_unit'=>$distributor->anualsale_unit,'slugroot'=>'distributor', 'slug'=>$distributor->slug])
+          @include('web.listing.listing_card_agent',['name'=>$sa->name, 'slugroot'=>'salesagent', 'slug'=>$sa->slug])
         </div>
         @endforeach
       </div>

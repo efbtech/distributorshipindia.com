@@ -61,7 +61,24 @@
                         <li><a href="{{ url('admin/donation-list') }}">Donation List</a></li>
                     </ul>-->
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ url('admin/users-list') }}">Users List</a></li>
+                        <li><a href="{{ url('admin/users-list') }}">All</a></li>
+                        <li><a href="{{ url('admin/users/distributors') }}">Distributors</a></li>
+                        <li><a href="{{ url('admin/users/franchises') }}">Franchises</a></li>
+                        <li><a href="{{ url('admin/users/agents') }}">Sales Agent</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                        <span>Listing</span>
+                    </a>
+                    <!--<ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ url('admin/donation-list') }}">Donation List</a></li>
+                    </ul>-->
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ url('admin/listing/distributors') }}">Distributors</a></li>
+                        <li><a href="{{ url('admin/listing/franchises') }}">Franchises</a></li>
+                        <li><a href="{{ url('admin/listing/agents') }}">Sales Agent</a></li>
                     </ul>
                 </li>
                 <!--<li>

@@ -13,3 +13,13 @@ function opensubcat(id,url) {
     }
   });
 }
+
+function openform(id){
+  if(id == 'becomemode'){
+    $('.appointmode').css('display','none');
+  }
+  if(id == 'appointmode'){
+    $('.becomemode').css('display','none');
+  }
+  $('.'+id).css('display','block');
+}
