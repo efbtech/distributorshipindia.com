@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
                         <div class="page-title">
-                            <h4 class="mb-0 font-size-18">@if($type) {{$type}} @else Users @endif list</h4>
+                            <h4 class="mb-0 font-size-18">{{$type}} list</h4>
                             <!--<ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="subscription-list.php">Subscription</a></li>
                                 <li class="breadcrumb-item active">Subscription list</li>
@@ -28,9 +28,8 @@
                                 <tr class="table-warning">
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Type</th>
+                                        <th>Mode</th>
+                                        <th>Posted By</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,9 +40,8 @@
                                     <tr>
                                         <th>{{ $i++ }}</th>
                                         <th>{{ $list->name }}</th>
-                                        <td>+91 899-9876-567</td>
-                                        <td>{{ $list->email }}</td>
-                                        <td>@if($list->intrested == 0) Distributor @endif @if($list->intrested == 1) Frenchies @endif @if($list->intrested == 2) Sales Agent @endif</td>
+                                        <td>{{ $list->mode }}</td>
+                                        <td>{{ $list->username }}</td>
                                         <td><a href="javascript:void(0)" data-bs-toggle="modal"
                                                 data-bs-target="#donationView"><i
                                                     class="fa-sharp fa-solid fa-eye"></i></a>

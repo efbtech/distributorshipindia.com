@@ -21,13 +21,13 @@ class GeneralController extends Controller
         $blogRand = $this->GeneralServiceInterface->blogRand();
         $distributors = $this->GeneralServiceInterface->allListing('distributor');
         $franchise = $this->GeneralServiceInterface->allListing('franchise');
-        return view('web.home',compact('blogRand','distributors','franchise'));
+        $salesagent = $this->GeneralServiceInterface->allListing('salesagent');
+        return view('web.home',compact('blogRand','distributors','franchise','salesagent'));
     }
 
     public function dashboard() {
         //dd(Auth::user()->intrested);
         $blogRand = $this->GeneralServiceInterface->blogRand();
-        
         $listing = $this->GeneralServiceInterface->userListing(Auth::id());
         return view('web.dash',compact('blogRand','listing'));
     }

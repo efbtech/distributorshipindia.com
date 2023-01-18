@@ -67,6 +67,12 @@ Route::get('admin/dashboard',[AdminDashboardController::class, 'dashBoard']);
 Route::get('admin/categories',[AdminCategoriesController::class, 'index']);
 Route::post('admin/category/store',[AdminCategoriesController::class, 'store']);
 Route::put('admin/categories/{id}',[AdminCategoriesController::class, 'update']);
+Route::get('admin/categories',[AdminCategoriesController::class, 'index']);
+Route::get('admin/users/{type}',[AdminUserController::class, 'userList']);
+Route::get('admin/listing/{type}',[AdminUserController::class, 'listing']);
+Route::get('admin/listing/{type}',[AdminUserController::class, 'listing']);
+Route::get('admin/listing/{type}',[AdminUserController::class, 'listing']);
+
 
 //Route::resource('category', 'CategoryController');
 //-----------------------------------------------Blogs Routes---------------------------------------------

@@ -18,5 +18,15 @@ class SubscriptionServices implements SubscriptionServiceInterface
     {
         return $this->SubscriptionInterface->subscriptionList();
     }
+
+    public function uList($t)
+    {
+        return $this->SubscriptionInterface->uList($t);
+    }
+
+    public function listing($t)
+    {
+        return $this->SubscriptionInterface->listing($t);
+    }
 }
 ?>

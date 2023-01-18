@@ -154,16 +154,6 @@ class GeneralRepository implements GeneralInterface
             $listing->expected_work = $request['expected_work'];
             $listing->client_needed = $request['client_needed'];
             $listing->location = $request['location'];
-            $listing->anualsale_start = $request['anualsale_start'];
-            $listing->anualsale_end = $request['anualsale_end'];
-            $listing->anualsale_unit = $request['anualsale_unit'];
-            $listing->total_distributors = $request['total_distributors'];
-            $listing->space = $request['space'];
-            $listing->logo = $uploadedImagePathLogo;
-            $listing->address = $request['address'];
-            $listing->city = $request['city'];
-            $listing->state = $request['state'];
-            $listing->zip = $request['zip'];
             $listing->mode = $request['mode'];
             $listing->slug = $this->makeslug($request['name']);
             $listing->save();
@@ -198,7 +188,13 @@ class GeneralRepository implements GeneralInterface
     }
 
     public function userListing($uid) {
-        $data = Distributor::where('user_id',$uid)->get();
+        if(auth()->user()->intrested == 2) {
+            $data = Salesagent::where('user_id',$uid)->get();
+        } elseif(auth()->user()->intrested == 1) {
+            $data = Franchise::where('user_id',$uid)->get();
+        } else {
+            $data = Distributor::where('user_id',$uid)->get();
+        }
         return $data;
     }
 
@@ -219,6 +215,9 @@ class GeneralRepository implements GeneralInterface
         }
         if($type == 'franchise') {
             $data = Franchise::orderBy('id', 'desc')->get();
+        }
+        if($type == 'salesagent') {
+            $data = Salesagent::orderBy('id', 'desc')->get();
         }
         return $data;
     }
